@@ -59,8 +59,9 @@ branches:
 
       required_status_checks:
         strict: true
-        contexts: ["Rust", "Pre-Commit"]
+        contexts:
+          - "build"
+          - "pre-commit"
+
       enforce_admins: false
-      required_linear_history: true
-      restrictions:
-        apps: []
+      restrictions: null
