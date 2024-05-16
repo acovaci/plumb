@@ -20,19 +20,25 @@ repository:
   enable_vulnerability_alerts: true
 
 labels:
-  - name: feature
-    color: 000000
+  - name: bug
+    color: fa4549
+    description: Something that isn't working as expected.
+
+  - name: planned
+    color: bf8700
     description: >
       Functionality that we want to implement. Only for use by the maintainers.
       Use `feature-request` for user suggestions.
 
-  - name: bug
-    color: ff0000
-    description: Something that isn't working as expected.
-
-  - name: feature-request
-    color: 0000ff
+  - name: feature
+    color: 218bff
     description: A suggestion for a new feature.
+
+  - name: good first issue
+    color: 7057ff
+    description: >
+      A good issue for first-time contributors. These issues are usually
+      well-defined and have clear steps to reproduce.
 
 milestones:
   - title: git-support
