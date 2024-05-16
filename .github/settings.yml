@@ -21,24 +21,29 @@ repository:
 
 labels:
   - name: bug
-    color: fa4549
+    color: B60205
     description: Something that isn't working as expected.
 
   - name: planned
-    color: bf8700
+    color: FBCA04
     description: >
       Functionality that we want to implement. Only for use by the maintainers.
-      Use `feature-request` for user suggestions.
 
   - name: feature
-    color: 218bff
+    color: 1D76DB
     description: A suggestion for a new feature.
 
+  - name: discussion
+    color: C5DEF5
+    description: >
+      For when there's not a clear requirement set, and arriving to a solution
+      requires discussing it.
+
   - name: good first issue
-    color: 7057ff
+    color: 5319E7
     description: >
       A good issue for first-time contributors. These issues are usually
-      well-defined and have clear steps to reproduce.
+      well-defined.
 
 milestones:
   - title: git-support
