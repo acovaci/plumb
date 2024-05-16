@@ -1,0 +1,64 @@
+# See https://docs.github.com/en/rest/reference/repos#update-a-repository for all available settings.
+
+repository:
+  name: plumb
+  description: >
+    Plumb is a Rust-based CLI for managing programming workspaces and projects.
+  topics: rust, cli, command-line, command-line-tool, workspace, project,
+    project-manager, developer-tools
+  private: false
+  has_issues: true
+  has_projects: true
+  has_wiki: false
+  has_downloads: true
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+
+labels:
+  - name: feature
+    color: 000000
+    description: Functionality that we want to implement. Only for use by the
+      maintainers. Use `feature-request` for user suggestions.
+
+  - name: bug
+    color: ff0000
+    description: Something that isn't working as expected.
+
+  - name: feature-request
+    color: 0000ff
+    description: A suggestion for a new feature.
+
+milestones:
+  - title: git-support
+    description: >
+      Implement necessary git functionality.
+    state: open
+
+  - title: vscode-support
+    description: >
+      Interact with vscode to manage workspaces and projects.
+    state: open
+
+collaborators: []
+
+teams:
+  - name: maintainers
+    permission: admin
+
+branches:
+  - name: master
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        dismissal_restrictions: null
+
+      required_status_checks: null
+      required_linear_history: true
+      restrictions: null
