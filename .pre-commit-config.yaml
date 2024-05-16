@@ -3,9 +3,13 @@ repos:
     rev: v4.6.0
     hooks:
       - id: check-yaml
+        types_or: [yaml]
       - id: check-toml
+        types_or: [toml]
       - id: check-executables-have-shebangs
+        types_or: [shell, text]
       - id: check-shebang-scripts-are-executable
+        types_or: [shell, text]
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/Lucas-C/pre-commit-hooks
