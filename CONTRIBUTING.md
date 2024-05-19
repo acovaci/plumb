@@ -48,17 +48,22 @@ brief reasoning for the choice of license:
         project. The only extra requirement is you needing to include the
         Commons Clause alongside the MPL 2.0 license.
 
-      * The licensors under the Commons Clause are defined as the contributors
-        to the project, weighed by the amount of code contributed. You can find
-        out more information in the [GOVERNANCE.md](GOVERNANCE.md) file. But,
-        in short, as long as you participate in this project, you are a licensor
-        as well. Decisions are driven democratically, with a simple majority
-        vote, with a quorum defined as 50% of the contributors that have engaged
-        with the project in the last 6 months. Engaged means participating in
-        discussions, reviewing PRs, submitting PRs, publishing issues, etc., as
-        well as contributing code, naturally.
+      * The licensors under the Commons Clause are defined as the active
+        contributors to the project, weighed by the amount of code contributed
+        in the last 6 months. You can find out more information in the
+        [GOVERNANCE.md](GOVERNANCE.md) file. But, in short, as long as you
+        participate in this project, by default, you are a licensor.
 
-      * You are allowed to explicitly waive your licensor rights and your
+      * Decisions are driven democratically, by a weighed vote proportional to
+        the amount of code contributed, by a simple majority vote with a quorum
+        defined as 50% of the active contributors:
+
+          * Active contributors are individuals (not code or bots) that
+            have contributed code to the project  Engaged means participating
+            over the last 6 months in discussions, reviewing PRs, submitting
+            PRs, publishing issues, etc., as well as contributing code.
+
+      * You are allowed to explicitly waive your licensor rights and your active
         contributor status, if you so wish, at any time. This will not affect
         your rights to use the software, but it will affect your rights and
         responsibilities in the governance of the project.
