@@ -2,7 +2,10 @@ use clap::{Parser, Subcommand};
 use plumb::command_version;
 
 #[derive(Parser, Debug)]
-#[command(name = "plumb", version)]
+#[command(
+    name = "plumb",
+    about = "A project manager for your development projects."
+)]
 struct Args {
     #[command(subcommand)]
     command: Option<Command>,
@@ -10,6 +13,7 @@ struct Args {
 
 #[derive(Debug, Subcommand)]
 enum Command {
+    /// Prints the version of the CLI.
     Version,
 }
 
