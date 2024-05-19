@@ -1,0 +1,6 @@
+locations:
+  projects: ~/projects
+projects:
+  - name: plumb
+  - name: monad
+    location: ~/projects/monad

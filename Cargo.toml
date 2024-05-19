@@ -7,3 +7,7 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.4", features = ["derive"] }
+config = "0.14.0"
+home = "0.5.9"
+serde = { version = "1.0.202", features = ["serde_derive"] }
+thiserror = "1.0.61"
