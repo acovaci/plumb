@@ -1,78 +1,80 @@
-# See https://docs.github.com/en/rest/reference/repos#update-a-repository for all available settings.
-
+---
 repository:
-  name: plumb
-  description: >
-    Plumb is a Rust-based CLI for managing programming workspaces and projects.
-  topics: rust, cli, command-line, command-line-tool, workspace, project,
-    project-manager, developer-tools
-  private: false
-  has_issues: true
-  has_projects: true
-  has_wiki: false
-  has_downloads: true
-  default_branch: main
-  allow_squash_merge: true
-  allow_merge_commit: false
-  allow_rebase_merge: false
-  delete_branch_on_merge: true
-  enable_automated_security_fixes: true
-  enable_vulnerability_alerts: true
+    name: plumb
+    description: >
+        Plumb is a Rust-based CLI for managing programming workspaces and
+        projects.
+    topics: >
+        rust, cli, command-line, command-line-tool, workspace, project,
+        project-manager, developer-tools
+    private: false
+    has_issues: true
+    has_projects: true
+    has_wiki: false
+    has_downloads: true
+    default_branch: main
+    allow_squash_merge: true
+    allow_merge_commit: false
+    allow_rebase_merge: false
+    delete_branch_on_merge: true
+    enable_automated_security_fixes: true
+    enable_vulnerability_alerts: true
 
 labels:
-  - name: bug
-    color: B60205
-    description: Something that isn't working as expected.
+    - name: bug
+      color: B60205
+      description: Something that isn't working as expected.
 
-  - name: planned
-    color: FBCA04
-    description: >
-      Functionality that we want to implement. Only for use by the maintainers.
+    - name: planned
+      color: FBCA04
+      description: >
+          Functionality that we want to implement. Only for use by the
+          maintainers.
 
-  - name: feature
-    color: 1D76DB
-    description: A suggestion for a new feature.
+    - name: feature
+      color: 1D76DB
+      description: A suggestion for a new feature.
 
-  - name: discussion
-    color: C5DEF5
-    description: >
-      For when there's not a clear requirement set, and arriving to a solution
-      requires discussing it.
+    - name: discussion
+      color: C5DEF5
+      description: >
+          For when there's not a clear requirement set, and arriving to a
+          solution requires discussing it.
 
-  - name: good first issue
-    color: 5319E7
-    description: >
-      A good issue for first-time contributors. These issues are usually
-      well-defined.
+    - name: good first issue
+      color: 5319E7
+      description: >
+          A good issue for first-time contributors. These issues are usually
+          well-defined.
 
 milestones:
-  - title: git-support
-    description: >
-      Implement necessary git functionality.
-    state: open
+    - title: git-support
+      description: >
+          Implement necessary git functionality.
+      state: open
 
-  - title: vscode-support
-    description: >
-      Interact with vscode to manage workspaces and projects.
-    state: open
+    - title: vscode-support
+      description: >
+          Interact with vscode to manage workspaces and projects.
+      state: open
 
 collaborators:
-  - username: acovaci
-  - username: scarab5q
+    - username: acovaci
+    - username: scarab5q
 
 branches:
-  - name: main
-    protection:
-      required_pull_request_reviews:
-        required_approving_review_count: 1
-        dismiss_stale_reviews: true
-        require_code_owner_reviews: true
+    - name: main
+      protection:
+          required_pull_request_reviews:
+              required_approving_review_count: 1
+              dismiss_stale_reviews: true
+              require_code_owner_reviews: true
 
-      required_status_checks:
-        strict: true
-        contexts:
-          - "build"
-          - "pre-commit"
+          required_status_checks:
+              strict: true
+              contexts:
+                  - build
+                  - pre-commit
 
-      enforce_admins: false
-      restrictions: null
+          enforce_admins: false
+          restrictions:
