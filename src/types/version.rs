@@ -1,14 +1,12 @@
-use std::fmt::{Display, Formatter, Result};
+use std::fmt::{Display, Formatter};
+
+use crate::error::Error;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemanticVersion {
     major: u8,
     minor: u8,
     patch: u8,
-}
-
-pub fn version() -> SemanticVersion {
-    SemanticVersion::from_env()
 }
 
 impl SemanticVersion {
@@ -20,8 +18,8 @@ impl SemanticVersion {
         }
     }
 
-    fn from_env() -> Self {
-        Self::from(env!("CARGO_PKG_VERSION"))
+    pub fn from_env() -> Result<Self, Error> {
+        Self::try_from(env!("CARGO_PKG_VERSION"))
     }
 
     pub fn major(&self) -> u8 {
@@ -37,41 +35,37 @@ impl SemanticVersion {
     }
 }
 
-impl From<&str> for SemanticVersion {
-    fn from(version: &str) -> Self {
-        let parts: Vec<&str> = version.split('.').collect();
-        let major = parts[0].parse().unwrap();
-        let minor = parts[1].parse().unwrap();
-        let patch = parts[2].parse().unwrap();
+impl TryFrom<&str> for SemanticVersion {
+    type Error = Error;
 
-        Self {
+    fn try_from(version: &str) -> Result<Self, Self::Error> {
+        let parts: Vec<&str> = version.split('.').collect();
+        let (major, minor, patch) = match (parts[0].parse(), parts[1].parse(), parts[2].parse()) {
+            (Ok(major), Ok(minor), Ok(patch)) => (major, minor, patch),
+            _ => return Err(Error::VersionParseError(version.to_string())),
+        };
+
+        Ok(Self {
             major,
             minor,
             patch,
-        }
+        })
     }
 }
 
 impl Display for SemanticVersion {
-    fn fmt(&self, f: &mut Formatter) -> Result {
+    fn fmt(&self, f: &mut Formatter) -> std::fmt::Result {
         write!(f, "{}.{}.{}", self.major, self.minor, self.patch)
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use std::env;
-
     use super::*;
 
     #[test]
-    fn test_version() {
-        assert_eq!(version().to_string(), env!("CARGO_PKG_VERSION"));
-    }
-
-    #[test]
     fn test_from_str() {
-        let version = SemanticVersion::from("0.1.0");
+        let version = SemanticVersion::try_from("0.1.0").unwrap();
         assert_eq!(version.major(), 0);
         assert_eq!(version.minor(), 1);
         assert_eq!(version.patch(), 0);

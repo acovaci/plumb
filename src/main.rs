@@ -1,7 +1,8 @@
 use clap::{Parser, Subcommand};
-use plumb::command_version;
-use plumb::config::load_config;
-use plumb::project;
+
+use plumb::{core::config::PlumbConfig, error::Error};
+
+mod cli;
 
 #[derive(Parser, Debug)]
 #[command(
@@ -35,19 +36,32 @@ enum ProjectCommand {
 pub fn main() {
     let cli = Args::parse();
 
-    let config = load_config().unwrap();
+    match run(cli) {
+        Ok(_) => {}
+        Err(e) => {
+            eprintln!("Error: {}", e);
+            std::process::exit(1);
+        }
+    }
+}
+
+fn run(cli: Args) -> Result<(), Error> {
+    let config = PlumbConfig::load(None).unwrap_or_else(|e| {
+        eprintln!("Error loading configuration: {}", e);
+        std::process::exit(1);
+    });
 
     match cli.command {
         Some(Command::Version) => {
-            command_version();
+            cli::version::version()?;
         }
         Some(Command::Project { command }) => match command {
             ProjectCommand::List => {
-                project::list(config);
+                cli::project::list(config)?;
             }
         },
-        _ => {
-            println!("Invalid arguments. Try `plumb help` for more information.");
-        }
+        _ => Err(Error::InvalidArguments)?,
     }
+
+    Ok(())
 }
