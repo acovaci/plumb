@@ -22,9 +22,8 @@ Contributions are welcome! Please follow these guidelines:
 ### Licensing implications
 
 By submitting a PR to this project you agree to release the source code under
-the MPL 2.0 license with a [Commons Clause](https://commonsclause.com) (or a
-future compatible clause/license that has at least the same restrictions as the
-combined MPLv2+CC restrictions).
+the Polyform v1.0.0 Small Business License, or any future version of the
+Polyform License published by Polyform Labs. See the [LICENSE](LICENSE).
 
 **Note:** It will be pointed out that this is not an open source license
 as defined by the Open Source Initiative. While discussions of the intricacies
