@@ -35,6 +35,11 @@ repos:
       rev: 0.2.3
       hooks:
           - id: yamlfmt
+    - repo: https://github.com/matthewhughes934/pre-commit-format-markdown
+      rev: v0.5.0
+      hooks:
+          - id: format-markdown-script
+            args: [--width, '100']
     - repo: https://github.com/compilerla/conventional-pre-commit
       rev: v3.2.0
       hooks:
