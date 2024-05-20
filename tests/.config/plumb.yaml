@@ -1,6 +1,10 @@
 ---
 locations:
-    projects: ~/projects
+    projects:
+        - path: ~/projects
+          name: projects_dir
+    defaults:
+        projects: projects_dir
 projects:
     - name: plumb
     - name: monad
