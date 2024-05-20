@@ -5,4 +5,9 @@ accepted = [
     "PolyForm-Small-Business-1.0.0",
     "ISC",
     "Unicode-DFS-2016",
+    "BSD-3-Clause",
+    "MPL-2.0",
+    "OpenSSL",
 ]
+
+workarounds = ["ring"]
