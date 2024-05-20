@@ -9,19 +9,17 @@ project.
 
 ## Definitions
 
-```
 - **Active Contributor**: An individual person with a non-void *scope of contribution* and *active
-status*. For example, under the current definition: someone who has contributed code to the
-project in the past 6 months and who has participated in discussions, reviewed PRs, submitted PRs,
-published issues, etc., over the last 6 months.
+  status*. For example, under the current definition: someone who has contributed code to the
+  project in the past 6 months and who has participated in discussions, reviewed PRs, submitted PRs,
+  published issues, etc., over the last 6 months.
 
 - **Scope of Contribution**: Can apply to a contributor; this definition can be modified by the
-licensors as needed. It is currently defined as the number of lines of code contributed to the
-project in the last 6 months, that have not been rejected or reverted.
+  licensors as needed. It is currently defined as the number of lines of code contributed to the
+  project in the last 6 months, that have not been rejected or reverted.
 
-    - **Void Scope of Contribution**: The scope of contribution of an active contributor is void if
+  - **Void Scope of Contribution**: The scope of contribution of an active contributor is void if
     they do not qualify to have a scope of contribution as defined above.
-```
 
 - **Activation Status**: Can apply to a contributor; this definition can be modified by the
   licensors as needed. It is currently defined as any contributor with a non-void scope of
@@ -54,7 +52,7 @@ project in the last 6 months, that have not been rejected or reverted.
   - Individuals that have contributed code to the project in the last 6 months, but whose
     contributions have been rejected or reverted.
 
-- **Licensors**: The active contributors to the project, weighed by the scope of their contribution.
+- **Licensor**: The active contributors to the project, weighed by the scope of their contribution.
 
 ## Decision Making
 
