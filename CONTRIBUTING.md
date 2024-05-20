@@ -21,20 +21,34 @@ Contributions are welcome! Please follow these guidelines:
 ### Licensing implications
 
 By submitting a PR to this project you agree to release the source code under the Polyform v1.0.0
-Small Business License, or any future version of an equivalent Polyform License published by
-Polyform Labs. See the [LICENSE](LICENSE).
+Small Business License, or any future license that the licensor might decide. Your contribution
+within the specific commits in the git history will always be available under the terms of the
+license that was in effect at the time of the contribution. See the [LICENSE](LICENSE).
 
 **Note:** It will be pointed out that this is not an open source license as defined by the Open
 Source Initiative. While discussions of the intricacies of the open source ecosystem is out of the
 scope of this document, this is a brief reasoning for the choice of license:
 
-- We are passionate about open source. We believe that open source is the best way to develop
-  software. But, in recent times, there has been an increasing trend of big corporations using open
-  source software to amass incredible profits without giving the least bit of financial support to
-  the developers who passionately maintain these projects. This is not sustainable.
+- We have a deep-rooted commitment to the principles of open source. We believe that open source is
+  not just a method of software development, but a movement that fosters innovation, collaboration,
+  and transparency. It empowers developers to share their work, build on each other’s ideas, and
+  collectively push the boundaries of what technology can achieve. However, recent trends have
+  highlighted a concerning pattern: large corporations are leveraging open source software to
+  generate substantial profits while contributing little to nothing back to the community. These
+  corporations benefit enormously from the hard work and dedication of open source developers, yet
+  they often fail to provide the financial support necessary to sustain these projects. This
+  exploitation undermines the very foundation of open source and threatens its future
+  sustainability.
 
-- As a result, we are seeing increased security risks of open source projects being abandoned due to
-  lack of funding. We believe that we can find a better way forward.
+- As a result of this imbalance, we are witnessing an increase in the abandonment of open source
+  projects. When developers are not adequately supported, they cannot maintain their projects,
+  leading to unaddressed security vulnerabilities and a lack of ongoing development. This poses
+  significant risks not only to the projects themselves but also to the countless other systems and
+  applications that depend on them. We believe there is a more equitable path forward—one that
+  ensures the sustainability of open source by aligning the interests of developers and users. By
+  adopting the Polyform Small Business License, we aim to create a model where small businesses can
+  freely benefit from our work, while larger entities that profit from it are encouraged to
+  contribute back, ensuring a healthier, more resilient open source ecosystem.
 
 - What are the implications for you as a contributor?
 
