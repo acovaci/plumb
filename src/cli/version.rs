@@ -1,11 +1,11 @@
-use plumb::{error::Error, types::SemanticVersion};
+use plumb::{error::Res, types::SemanticVersion};
 
-pub fn version() -> Result<(), Error> {
+pub fn version() -> Res<()> {
     println!("plumb {}", get_version()?);
     Ok(())
 }
 
-fn get_version() -> Result<SemanticVersion, Error> {
+fn get_version() -> Res<SemanticVersion> {
     SemanticVersion::from_env()
 }
 

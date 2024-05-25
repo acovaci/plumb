@@ -1,0 +1,20 @@
+---
+locations:
+    projects:
+        - path: ~/yet_another_projects
+          name:
+        - path: ~/other_projects
+          name:
+        - path: ~/projects
+          name: projects
+    defaults:
+        projects: projects
+projects:
+    - name: project1
+      path: ~/projects
+    - name: project2
+      path: ~/other_projects/project2
+    - name: project3
+      path: ~/projects
+    - name: project4
+      path: ~/projects

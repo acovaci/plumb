@@ -1,8 +1,8 @@
 use std::path::PathBuf;
 
-use crate::error::Error;
+use crate::error::{PlumbError, Res};
 
-pub fn get_config_file() -> Result<PathBuf, Error> {
+pub fn get_config_file() -> Res<PathBuf> {
     if let Some(override_path) = get_config_file_override() {
         return Ok(override_path);
     }
@@ -12,12 +12,12 @@ pub fn get_config_file() -> Result<PathBuf, Error> {
     Ok(config_dir.join(config_file))
 }
 
-pub fn get_config_filename() -> Result<String, Error> {
+pub fn get_config_filename() -> Res<String> {
     const DEFAULT_CONFIG: &str = "plumb.yaml";
     Ok(DEFAULT_CONFIG.to_string())
 }
 
-pub fn get_config_dir() -> Result<PathBuf, Error> {
+pub fn get_config_dir() -> Res<PathBuf> {
     if let Ok(config_dir) = std::env::var("XDG_CONFIG_HOME") {
         return Ok(PathBuf::from(config_dir));
     }
@@ -39,11 +39,11 @@ pub fn get_config_file_override() -> Option<PathBuf> {
     None
 }
 
-pub fn get_home_dir() -> Result<PathBuf, Error> {
+pub fn get_home_dir() -> Res<PathBuf> {
     if cfg!(test) || cfg!(debug_assertions) {
         let cwd = std::env::current_dir()?;
         return Ok(cwd.join("tests"));
     }
 
-    home::home_dir().ok_or(Error::HomeDirNotFound)
+    home::home_dir().ok_or(PlumbError::HomeDirNotFound)
 }

@@ -1,7 +1,20 @@
-use plumb::{core::config::PlumbConfig, error::Error, types::Project};
+use clap::Subcommand;
+use plumb::{core::config::manager::ConfigManager, error::Res, types::Project};
 
-pub fn list(config: PlumbConfig) -> Result<(), Error> {
-    for project in get_projects(config) {
+#[derive(Debug, Subcommand)]
+pub enum ProjectCommand {
+    /// List all projects.
+    List,
+}
+
+pub fn run(config: ConfigManager, command: ProjectCommand) -> Res<()> {
+    match command {
+        ProjectCommand::List => list(config),
+    }
+}
+
+pub fn list(config: ConfigManager) -> Res<()> {
+    for project in get_projects(config)? {
         println!(
             "{} @ {}",
             project.name(),
@@ -11,8 +24,8 @@ pub fn list(config: PlumbConfig) -> Result<(), Error> {
     Ok(())
 }
 
-fn get_projects(config: PlumbConfig) -> Vec<Project> {
-    config.projects().to_vec()
+fn get_projects(config: ConfigManager) -> Res<Vec<Project>> {
+    Ok(config.config()?.projects().to_vec())
 }
 
 #[cfg(test)]
@@ -23,8 +36,8 @@ mod tests {
 
     #[test]
     fn test_get_projects() {
-        let config = PlumbConfig::load(None).unwrap();
-        let projects = get_projects(config);
+        let config = ConfigManager::try_load(None).unwrap();
+        let projects = get_projects(config).unwrap();
         assert_eq!(
             projects,
             vec![

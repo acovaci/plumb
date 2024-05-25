@@ -9,11 +9,6 @@ pub struct Location {
     name: Option<String>,
 }
 
-#[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub enum DefaultLocation {
-    Projects,
-}
-
 impl Location {
     pub fn new(path: PathBuf, name: Option<String>) -> Self {
         Self {
@@ -33,5 +28,9 @@ impl Location {
 
     pub fn key(&self) -> &LocationKey {
         &self.key
+    }
+
+    pub fn join(&self, path: &str) -> Location {
+        Location::new(self.path.join(path), None)
     }
 }

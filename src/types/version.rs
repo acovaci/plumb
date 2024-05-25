@@ -1,6 +1,6 @@
 use std::fmt::{Display, Formatter};
 
-use crate::error::Error;
+use crate::error::{PlumbError, Res};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SemanticVersion {
@@ -18,7 +18,7 @@ impl SemanticVersion {
         }
     }
 
-    pub fn from_env() -> Result<Self, Error> {
+    pub fn from_env() -> Res<Self> {
         Self::try_from(env!("CARGO_PKG_VERSION"))
     }
 
@@ -36,13 +36,13 @@ impl SemanticVersion {
 }
 
 impl TryFrom<&str> for SemanticVersion {
-    type Error = Error;
+    type Error = PlumbError;
 
-    fn try_from(version: &str) -> Result<Self, Self::Error> {
+    fn try_from(version: &str) -> Res<Self> {
         let parts: Vec<&str> = version.split('.').collect();
         let (major, minor, patch) = match (parts[0].parse(), parts[1].parse(), parts[2].parse()) {
             (Ok(major), Ok(minor), Ok(patch)) => (major, minor, patch),
-            _ => return Err(Error::VersionParseError(version.to_string())),
+            _ => return Err(PlumbError::VersionParseError(version.to_string())),
         };
 
         Ok(Self {
