@@ -103,7 +103,7 @@ impl ConfigTranscriber for PlumbConfig {
                     Location::new(
                         project
                             .path
-                            .unwrap_or(default_project_location.clone().path().to_path_buf()),
+                            .unwrap_or(default_project_location.join(&project.name).path().clone()),
                         None,
                     ),
                 )

@@ -11,10 +11,10 @@ locations:
         projects: projects
 projects:
     - name: project1
-      path: ~/projects
+      path: ~/projects/project1
     - name: project2
       path: ~/other_projects/project2
     - name: project3
-      path: ~/projects
+      path: ~/projects/project3
     - name: project4
-      path: ~/projects
+      path: ~/projects/project4

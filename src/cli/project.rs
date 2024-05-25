@@ -30,19 +30,37 @@ fn get_projects(config: ConfigManager) -> Res<Vec<Project>> {
 
 #[cfg(test)]
 mod tests {
+    use std::path::PathBuf;
+
     use super::*;
 
     use plumb::types::Location;
 
     #[test]
     fn test_get_projects() {
-        let config = ConfigManager::try_load(None).unwrap();
+        let config =
+            ConfigManager::try_load(Some(&PathBuf::from("tests/fixtures/project_list.yml")))
+                .unwrap();
         let projects = get_projects(config).unwrap();
         assert_eq!(
             projects,
             vec![
-                Project::new("plumb", Location::new("~/projects/plumb".into(), None)),
-                Project::new("monad", Location::new("~/projects/monad".into(), None))
+                Project::new(
+                    "project1",
+                    Location::new("~/projects/project1".into(), None)
+                ),
+                Project::new(
+                    "project2",
+                    Location::new("~/other_projects/project2".into(), None)
+                ),
+                Project::new(
+                    "project3",
+                    Location::new("~/projects/project3".into(), None)
+                ),
+                Project::new(
+                    "project4",
+                    Location::new("~/projects/project4".into(), None)
+                )
             ]
         );
     }
