@@ -12,12 +12,6 @@ impl ProjectBuilder {
     }
 
     pub fn build(&self, name: &str, location: Option<Location>) -> Project {
-        Project::new(
-            name,
-            location.unwrap_or({
-                let path = self.location.path().join(name);
-                Location::new(path, None)
-            }),
-        )
+        Project::new(name, location.unwrap_or(self.location.join(name)))
     }
 }

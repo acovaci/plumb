@@ -1,7 +1,20 @@
-use plumb::{core::config::PlumbConfig, error::Error, types::Project};
+use clap::Subcommand;
+use plumb::{core::config::manager::ConfigManager, error::Res, types::Project};
 
-pub fn list(config: PlumbConfig) -> Result<(), Error> {
-    for project in get_projects(config) {
+#[derive(Debug, Subcommand)]
+pub enum ProjectCommand {
+    /// List all projects.
+    List,
+}
+
+pub fn run(config: ConfigManager, command: ProjectCommand) -> Res<()> {
+    match command {
+        ProjectCommand::List => list(config),
+    }
+}
+
+pub fn list(config: ConfigManager) -> Res<()> {
+    for project in get_projects(config)? {
         println!(
             "{} @ {}",
             project.name(),
@@ -11,25 +24,43 @@ pub fn list(config: PlumbConfig) -> Result<(), Error> {
     Ok(())
 }
 
-fn get_projects(config: PlumbConfig) -> Vec<Project> {
-    config.projects().to_vec()
+fn get_projects(config: ConfigManager) -> Res<Vec<Project>> {
+    Ok(config.config()?.projects().to_vec())
 }
 
 #[cfg(test)]
 mod tests {
+    use std::path::PathBuf;
+
     use super::*;
 
     use plumb::types::Location;
 
     #[test]
     fn test_get_projects() {
-        let config = PlumbConfig::load(None).unwrap();
-        let projects = get_projects(config);
+        let config =
+            ConfigManager::try_load(Some(&PathBuf::from("tests/fixtures/project_list.yml")))
+                .unwrap();
+        let projects = get_projects(config).unwrap();
         assert_eq!(
             projects,
             vec![
-                Project::new("plumb", Location::new("~/projects/plumb".into(), None)),
-                Project::new("monad", Location::new("~/projects/monad".into(), None))
+                Project::new(
+                    "project1",
+                    Location::new("~/projects/project1".into(), None)
+                ),
+                Project::new(
+                    "project2",
+                    Location::new("~/other_projects/project2".into(), None)
+                ),
+                Project::new(
+                    "project3",
+                    Location::new("~/projects/project3".into(), None)
+                ),
+                Project::new(
+                    "project4",
+                    Location::new("~/projects/project4".into(), None)
+                )
             ]
         );
     }
