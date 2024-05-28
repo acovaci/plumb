@@ -11,7 +11,7 @@ config = "0.14.0"
 git2 = "0.18.3"
 home = "0.5.9"
 notify = "6.1.1"
-serde = { version = "1.0.202", features = ["serde_derive", "derive"] }
+serde = { version = "1.0.203", features = ["serde_derive", "derive"] }
 serde_yaml = "0.9.34"
 thiserror = "1.0.61"
 tokio = { version = "1.37.0", features = ["fs", "io-std", "io-util", "tokio-macros", "rt-multi-thread", "test-util", "macros"] }
