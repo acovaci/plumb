@@ -1,7 +1,7 @@
 # Plumb: CLI for managing your development projects
 
-[![PolyForm Small Business License 1.0.0](https://img.shields.io/static/v1?label=Hippocratic%20License&message=PF1-SB&labelColor=5e2751&color=249FBC)](https://polyformproject.org/licenses/small-business/1.0.0/)
-[![Hippocratic License HL3-ECO-FFD-LAW-MEDIA-MIL-SOC-SV](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-ECO-FFD-LAW-MEDIA-MIL-SOC-SV&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/eco-ffd-law-media-mil-soc-sv.html)
+[![PolyForm Small Business License 1.0.0](https://img.shields.io/static/v1?label=Polyform%20Small%20Business%20License&message=PF1-SB&color=249FBC)](https://polyformproject.org/licenses/small-business/1.0.0/)
+[![Hippocratic License HL3-ECO-FFD-LAW-MEDIA-MIL-SOC-SV](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-ECO-FFD-LAW-MEDIA-MIL-SOC-SV&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/eco-ffd-law-media-mil-soc-sv.html)
 
 Are you sick of having to constantly cd in-and-out of everywhere to set up your projects? And
 especially of writing that react project config the umpteenth time? So are we!
