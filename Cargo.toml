@@ -8,7 +8,7 @@ edition = "2021"
 [dependencies]
 clap = { version = "4.5.4", features = ["derive"] }
 config = "0.14.0"
-git2 = "0.18.3"
+git2 = "0.19.0"
 home = "0.5.9"
 notify = "6.1.1"
 serde = { version = "1.0.203", features = ["serde_derive", "derive"] }
